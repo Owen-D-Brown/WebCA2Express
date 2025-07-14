@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../stylesheets/pokedexStyle.css">
     <link rel="stylesheet" href="../stylesheets/createAccount.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Title</title>
 
 
@@ -27,31 +27,68 @@
             <span id="genderDia">What gender are you?</span><br>
             <div id="genderOptions">
                     <label id="boy">
-                    <input type="radio" name="gender" value="male">
+                    <input type="radio" name="gender" value="male"/>
                     Boy
                 </label>
                 <label id="girl">
-                    <input type="radio" name="gender" value="male">
+                    <input type="radio" name="gender" value="male"/>
                     Girl
                 </label>
                 <label id="other">
-                    <input type="radio" name="gender" value="male">
+                    <input type="radio" name="gender" value="male"/>
                     Other
                 </label>
                 <label id="preferNotToSay">
-                    <input type="radio" name="gender" value="male">
+                    <input type="radio" name="gender" value="male"/>
                     Prefer not to say
                 </label>
             </div>
         </div>
 
-        <div id="test"></div>
+        <div id="ageSelect">
+           <div id="diaBox">How old are you?</div>
+            <div id="ageBox"></div>
+            <label id="ageSlider">
+
+                <input type="range" name="age" id="ageSliderBar" min="0" max="100" value="25" step="1" />
+            </label>
+        </div>
+
+        <div id="nameSelect">
+            <div id="diaBox">What is your name?</div>
+            <div id="nameContainer">
+                <label id="firstName">
+                    <input type="text" id="firstNameBox" placeHolder="First Name" />
+                </label>
+                <label id="lastName">
+                    <input type="text" id="lastNameBox" placeHolder="Last Name" />
+                </label>
+            </div>
+            <div id="diaBox">What do you want to be called?</div>
+            <label id="screenName">
+                <input type="text" id="screenNameBox" placeHolder="Screen Name"/>
+            </label>
+        </div>
+
+        <div id="trainerCardSelect">
+            <i class="fa fa-angle-left" id="leftArrow"></i>
+            <div id="trainerCardPlaceholder"></div>
+            <i class="fa fa-angle-right" id="rightArrow"></i>
+        </div>
+
+        <div id="submitContainer">
+            <label id="submitLabel">
+                <input type="submit" value="submit"/>
+            </label>
+        </div>
+
+        <!--<div id="test"></div>-->
 
     </form>
 </div>
 
 <footer>
-
+    <script src="../javascripts/createAccount.js"></script>
 </footer>
 </body>
 </html>

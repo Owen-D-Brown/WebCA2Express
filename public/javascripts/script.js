@@ -45,6 +45,7 @@ function updateBtns(currentPage) {
                 currentPage = currentPage-1;
             } else if(i === 0 && currentPage === 1) {
                 currentPage = 1;
+
             } else if(i === 4) {
                 currentPage = currentPage +1;
             } else {
@@ -117,9 +118,13 @@ function updateBtns(currentPage) {
                 break;
             case 1:
                 button.textContent = firstBtn;
+                if(currentPage==1)
+                    button.style.backgroundColor ="mediumspringgreen";
                 break;
             case 2:
                 button.textContent = middleBtn;
+                if(currentPage != 1)
+                    button.style.backgroundColor ="mediumspringgreen";
                 break;
             case 3:
                 button.textContent = lastBtn;
@@ -163,7 +168,7 @@ document.getElementById('pokedexBody').addEventListener('click', function (event
     while (clone.children.length > 2) {
         clone.removeChild(clone.lastChild); // Remove last child until only two remain
     }
-    clone.style.border = "2px ridge white";
+    clone.style.border = "2px ridge black";
 
     clone.id ="sideDex"
     side.innerHTML = clone.outerHTML;

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/stylesheets/pokedexStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/viewPokemon.css">
+    <title>Title</title>
+
+
+</head>
+<body>
+<nav id="navbar">
+    <div id="Pokeball"></div>
+    <div id="navbarContent">
+        <ul><li></li></ul>
+        <ul><li></li></ul>
+        <ul><li></li></ul>
+        <ul><li></li></ul>
+    </div>
+    <div id="navBlackBox"></div>
+</nav>
+
+<script>
+
+</script>
+<div class="pokemon-container">
+    <div class="image-section">
+        <img src="<%= pokemonData.image %>" alt="<%= pokemonData.name %>">
+    </div>
+
+    <div class="info-section">
+        <h2>#<%= pokemonData.dexNo %> - <%= pokemonData.name %></h2>
+        <p><strong>Type:</strong> <%= pokemonData.type %></p>
+        <p><strong>Height:</strong> <%= pokemonData.height %> dm</p>
+        <p><strong>Weight:</strong> <%= pokemonData.weight %> hg</p>
+    </div>
+
+    <div class="description-section">
+        <h3>Pokédex Descriptions</h3>
+        <div class="description-scroll">
+            <% pokemonData.descriptions.forEach(desc => { %>
+                <p><%= desc %></p>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/javascripts/script.js"></script>
+</footer>
+</body>
+</html>

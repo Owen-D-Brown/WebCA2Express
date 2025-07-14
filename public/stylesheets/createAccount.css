@@ -7,8 +7,8 @@ body {
     top: -10%;
     margin-left: 120px;
     width: calc(90% - 103px);
-    height: 100vh;
-    //border: 1px solid black;
+    height: 100%;
+
     /*background-image: url("../Resources/background.jpg");*/
     background-size: cover;
     //background: #cce0ff;
@@ -16,13 +16,14 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+
 }
 
 #formContainer {
 
     margin-top: 25px;
-    width: 100%;
-    height: 80%;
+    width: 99.6%;
+    height: 100%;
     background: linear-gradient(white, mediumseagreen);
     border-radius: 25px;
     border: 3px solid black;
@@ -30,11 +31,10 @@ body {
 
 #genderSelect {
     margin-top: 100px;
-    left: 10%;
-    /*border: 1px solid red;*/
+
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+
     align-items: center;
 }
  #genderDia {
@@ -42,10 +42,11 @@ body {
      border-radius: 30px;
      font-family: PokemonFont;
      height: 30px;
-     width: 22%;
      padding-left: 12px;
-     padding-top: 10px;
+     padding-top: 12px;
+     padding-right: 12px;
      background: white;
+     overflow: hidden;
  }
 
  #genderOptions {
@@ -58,6 +59,8 @@ body {
      font-family: PokemonFont;
 
  }
+
+
 
  #test {
      height: 20%;
@@ -83,3 +86,120 @@ body {
          background-position: 0% 50%;
      }
  }
+ #ageSelect {
+     width: 100%;
+     height: 200px;
+
+     justify-self: center;
+     margin-top: 100px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 20px;
+ }
+#diaBox {
+    margin-top: 25px;
+    border: 1px solid mediumspringgreen;
+    border-radius: 30px;
+    font-family: PokemonFont;
+    height: 30px;
+
+    padding-left: 12px;
+    padding-top: 12px;
+    padding-right: 12px;
+    background: white;
+
+    overflow: hidden;
+  }
+
+#ageBox {
+    width: 150px;
+    height: 50px;
+    border: 3px solid mediumspringgreen;
+    border-radius: 25px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: PokemonFont;
+
+}
+
+#ageSlider {
+    width: 50%;
+   /* border: 1px solid red;*/
+    display: flex;
+    justify-content: center;
+
+}
+#ageSliderBar {
+    width: 50%;
+}
+#nameSelect {
+
+    width: 100%;
+    height: 40%;
+    justify-self: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#nameContainer {
+
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#firstNameBox, #lastNameBox, #screenNameBox {
+    width: 250px;
+    height: 30px;
+    border: 3px solid mediumspringgreen;
+    border-radius: 25px;
+    background: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: PokemonFont;
+    margin-top: 12%;
+}
+#screenNameBox {
+    width: 300px;
+}
+#trainerCardSelect {
+    width: 100%;
+    height: 500px;
+    justify-self: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+}
+#trainerCardPlaceholder {
+
+    width: 750px;
+    height: 100%;
+    background-image: url("../resources/trainerCardBlue.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#leftArrow, #rightArrow {
+    font-size: 35px;
+}
+#submitContainer {
+    width: 100%;
+    height: 200px;
+    border: 2px solid red;
+    justify-self: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}

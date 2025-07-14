@@ -9,6 +9,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var pokemonRouter = require('./routes/viewPokemon');
 
 var app = express();
 
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.use('/pokedex', indexRouter);
 app.use('/users', usersRouter);
+app.use('/pokemon', pokemonRouter);
 
 
 /*app.get('/getPokemon', async (req, res) => {

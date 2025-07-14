@@ -87,7 +87,8 @@
     width: 20%;
     height: 56vh;
     border: 1px solid black;
-    background: red;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     margin-top: 200px;
     margin-left: 10px;
     position: sticky;
@@ -160,14 +161,15 @@
     text-align: center;
 }
 #sideDex {
-    border: 2px solid black;
-    
-    background: radial-gradient(circle, rgba(246, 246, 246, 0.5), rgb(0, 48, 7)),
+    border: 12px solid black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background: radial-gradient(circle, rgba(72, 248, 133, 0.5), rgba(60, 237, 199, 0.9)),
     linear-gradient( #28ffab, #0099cc, #146de1, rgba(13, 226, 246, 0.24));
     background-size: 300% 300%;
     box-shadow: 0 0 30px rgba(0, 255, 255, 0.9), 0 0 50px rgba(255, 0, 255, 0.9);
     animation: gradiantAnimation 10s ease infinite;
-    filter: hue-rotate(10deg) brightness(1.2) blur(1px);
+    filter: hue-rotate(10deg) brightness(1.2);
 }
 @keyframes gradiantAnimation {
     0% {
