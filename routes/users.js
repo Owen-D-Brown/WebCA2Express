@@ -5,5 +5,8 @@ var router = express.Router();
 router.get('/createAccount', function(req, res, next) {
   res.render('createAccount');
 });
+router.get('/', function(req, res, next) {
+  res.render('createAccount');
+});
 
 module.exports = router;
