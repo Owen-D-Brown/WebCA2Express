@@ -5,7 +5,7 @@ var path = require('path');
 
 router.get('/', async function(req, res, next) {
   try {
-    const { sendPokemon } = await import('../services/getPokemon.mjs'); // Await the import
+    const { getMultiplePokemonInfo } = await import('../services/getPokemon.mjs'); // Await the import
 
     let mons = [];
     let indexes = []
@@ -13,14 +13,12 @@ router.get('/', async function(req, res, next) {
     for (let i = 1; i < 21; i++) {
       indexes.push(i)
     }
-    let pokemonData = await sendPokemon(indexes); // Await each call
+    let pokemonData = await getMultiplePokemonInfo(indexes); // Await each call
  // Directly push the Pokémon data object
-    nonJsonMons = pokemonData
 
-    pokemonData = JSON.stringify(pokemonData)
     // console.log(mons)
     // Render the EJS template with the Pokémon data
-    res.render('index', { pokemon: pokemonData, nonJsonPokemon : nonJsonMons }); // Pass the array directly
+    res.render('index', { pokemon: pokemonData}); // Pass the array directly
   } catch (error) {
     console.error('Error fetching Pokémon:', error);
     next(error); // Pass the error to Express error handler
@@ -34,7 +32,7 @@ router.post('/update', async (req, res) => {
   console.log(`Fetching Pokémon from ID ${startIndex} to ${endIndex}`);
 
   try {
-    const { sendPokemon } = await import('../services/getPokemon.mjs'); // Await the import
+    const { getMultiplePokemonInfo } = await import('../services/getPokemon.mjs'); // Await the import
     let mons = [];
     let pokeReq = [];
     console.log("start id "+startIndex)
@@ -42,7 +40,7 @@ router.post('/update', async (req, res) => {
     for (let i = startIndex; i <= endIndex; i++) {
        pokeReq.push(i);
     }
-    const pokemonData = await sendPokemon(pokeReq);  // Await each API call
+    const pokemonData = await getMultiplePokemonInfo(pokeReq);  // Await each API call
 
     // Send the array of Pokémon data back to the client
     res.json(pokemonData);

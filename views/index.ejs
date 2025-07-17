@@ -29,7 +29,7 @@
 
 
             <script>
-                let pokemon = <%-pokemon%>
+                let pokemon = <%- JSON.stringify(pokemon) %>
 
 
             </script>
@@ -37,12 +37,12 @@
 
                     <div class="pokedexEntry">
                         <div class="pokedexImage">
-                            <img class ="pokedexImage" src="<%= nonJsonPokemon[i].image %>" alt="<%= nonJsonPokemon[i].name %>" style="width:220px;height:220px;">
+                            <img class ="pokedexImage" src="<%= pokemon[i].image %>" alt="<%= pokemon[i].name %>" style="width:220px;height:220px;">
                         </div>
-                        <div class="pokedexDetail"><%- nonJsonPokemon[i].name %></div>
-                        <div class="pokedexDetail"><%- nonJsonPokemon[i].type %></div>
-                        <div class="pokedexDetail"><%- nonJsonPokemon[i].height %>ft.</div>
-                        <div class="pokedexDetail"><%- nonJsonPokemon[i].weight %>lbs.</div>
+                        <div class="pokedexDetail"><%- pokemon[i].name %></div>
+                        <div class="pokedexDetail"><%- pokemon[i].type %></div>
+                        <div class="pokedexDetail"><%- pokemon[i].height %>ft.</div>
+                        <div class="pokedexDetail"><%- pokemon[i].weight %>lbs.</div>
                     </div>
                 <% } %>
 

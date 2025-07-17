@@ -1,7 +1,7 @@
 
 let btns = [];
 let currentPage = 1;  // Keep track of the current page
-console.log(pokemon)//use this to access stats - change getRequest line to include stats.
+//use this to access stats - change getRequest line to include stats.
 // Initial setup (1st page)
 
 
