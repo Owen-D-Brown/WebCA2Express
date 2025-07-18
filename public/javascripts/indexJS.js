@@ -1,27 +1,26 @@
-function updateCarouselTransform() {
-    const offset = scrollIndex * cardWidth;
-    const cards = carousel.querySelectorAll('.pokemonCard');
 
-    cards.forEach((card, i) => {
-        const currentX = parseInt(card.style.transform?.replace('translateX(', '').replace('px)', '')) || 0;
-        const newX = currentX - cardWidth; // or +cardWidth for left
-        card.style.transform = `translateX(${newX}px)`;
-    });
-}
 
 
 
 const carousel = document.getElementById('pokemonCarousel');
 const leftBtn = document.getElementById('carouselLeft');
 const rightBtn = document.getElementById('carouselRight');
-const totalCards = homepageMons.length;
 
-const cardWidth = 175;
+
+
 const cardsToShow = 5;
 const cardVisualWidth = 150;
-const cardSpacing = 10;
-const cardStep = cardVisualWidth + cardSpacing;
-let scrollIndex = 0;
+
+
+
+
+
+const carouselInner = document.getElementById('carouselInner');
+const totalCards = homepageMons.length;
+const cardWidth = 150;
+const cardSpacing = 37;
+const cardStep = cardWidth + cardSpacing;
+let scrollIndex = 3;
 
 const allCards = homepageMons.map(mon => {
     const card = document.createElement('div');
@@ -34,45 +33,47 @@ const allCards = homepageMons.map(mon => {
     return card;
 });
 
-function renderVisibleCards() {
-    carousel.style.transform = 'translateX(0)'; // reset position
-    carousel.innerHTML = ''; // clear old cards
 
-    allCards.forEach(card => {
-        carousel.appendChild(card);
-    });
+function renderVisibleCards() {
+    carouselInner.innerHTML = '';
+    allCards.forEach(card => carouselInner.appendChild(card));
+}
+
+function updateCarouselPosition() {
+    const offset = (scrollIndex - 3) * cardStep;
+    carouselInner.style.transform = `translateX(-${offset}px)`;
 }
 
 
 
 function slide(direction) {
-
-    const delta = direction === 'right' ? -cardStep : cardStep;
-    const cards = carousel.querySelectorAll('.pokemonCard');
-
-    cards.forEach(card => {
-        const currentX = parseInt(card.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
-        card.style.transition = 'transform 0.9s ease';
-        card.style.transform = `translateX(${currentX + delta}px)`;
-    });
-
-    scrollIndex = (scrollIndex + (direction === 'right' ? 1 : -1) + totalCards) % totalCards;
+    if (direction === 'right') {
+        scrollIndex = scrollIndex + 1;
+        if(scrollIndex >= 28) {
+            scrollIndex = 2;
+        }
+    } else if (direction === 'left') {
+        scrollIndex = scrollIndex - 1
+        if(scrollIndex <= 2) {
+            scrollIndex = 28;
+        }
+    }
+    updateCarouselPosition();
 }
 
 
-
 carouselRight.addEventListener('click', () => {
-    if (scrollIndex >= 30) {
-        return;
-    }
+
+
     slide('right');
+    console.log(scrollIndex);
 });
 
 carouselLeft.addEventListener('click', () => {
-    if (scrollIndex <= 3) {
-        return;
-    }
+
     slide('left');
+    console.log(scrollIndex);
+
 });
 
 
@@ -80,11 +81,11 @@ let autoScrollInterval = setInterval(() => {
     slide('right');
 }, 3000); // scroll every 4 seconds
 
-carousel.addEventListener('mouseenter', () => {
+carouselWrapper.addEventListener('mouseenter', () => {
     clearInterval(autoScrollInterval);
 });
 
-carousel.addEventListener('mouseleave', () => {
+carouselWrapper.addEventListener('mouseleave', () => {
     autoScrollInterval = setInterval(() => {
         slide('right');
     }, 3000);

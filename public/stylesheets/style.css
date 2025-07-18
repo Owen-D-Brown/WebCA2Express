@@ -160,8 +160,20 @@ body {
 
 #pokemonCarousel {
     display: flex;
-    gap: 25px;
+    justify-content: flex-start;
+
     overflow-x: hidden;
+    transition: transform 0.4s ease-in-out;
+    flex-wrap: nowrap;
+    padding-bottom: 10px;
+    will-change: transform;
+}
+
+#carouselInner {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-start;
+
     transition: transform 0.4s ease-in-out;
     flex-wrap: nowrap;
     padding-bottom: 10px;
