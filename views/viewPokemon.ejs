@@ -22,7 +22,9 @@
 </nav>
 
 <script>
-    const pokemon = <%- JSON.stringify(pokemon)%>
+    const pokemon = <%- JSON.stringify(pokemon)%>;
+    window.pokemonSearchID = pokemon.dexNo; //
+
 </script>
 <div class="pokemon-container">
     <div class="top-section">
@@ -43,10 +45,17 @@
 
         <div class="info-column">
             <div class="info-box">
-                <h2 class="pokemon-name">#<%= pokemon.dexNo %> – <%= pokemon.name %></h2>
+                <div class="pokemon-header">
+                    <h2 class="pokemon-name">#<%= pokemon.dexNo %> – <%= pokemon.name %></h2>
+                    <div class="nav-buttons-inline">
+                        <button class="nav-btn" id="prevBtn">‹</button>
+                        <button class="nav-btn" id="nextBtn">›</button>
+                    </div>
+                </div>
+
 
                 <div class="info-row"><span class="label">Type:</span> <span class="value"><%= pokemon.type %></span></div>
-                <div class="info-row"><span class="label">Height:</span> <span class="value"><%= pokemon.height %> </span></div>
+                <div class="info-row"><span class="label">Height:</span> <span class="value"><%= pokemon.height %> ft</span></div>
                 <div class="info-row"><span class="label">Weight:</span> <span class="value"><%= pokemon.weight %> lbs</span></div>
 
                 <div class="info-row abilities-row">
@@ -96,6 +105,7 @@
 <footer>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../javascripts/viewPokemon.js"></script>
+
 </footer>
 </body>
 </html>

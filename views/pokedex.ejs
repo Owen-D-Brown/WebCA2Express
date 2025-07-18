@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheets/pokedexStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Title</title>
+
+
+</head>
+<body>
+<nav id="navbar">
+    <div id="Pokeball"></div>
+    <div id="navbarContent">
+        <ul><li></li></ul>
+        <ul><li></li></ul>
+        <ul><li></li></ul>
+        <ul><li></li></ul>
+    </div>
+    <div id="navBlackBox"></div>
+</nav>
+
+<div id="mainContent">
+    <div id="sideAndBody">
+        <div id="sideContent">
+
+        </div>
+        <div id="pokedexBody">
+
+
+            <script>
+                let pokemon = <%- JSON.stringify(pokemon) %>
+
+
+            </script>
+                <% for(let i = 0; i < 20; i++) { %>
+
+                    <div class="pokedexEntry">
+                        <div class="pokedexImage">
+                            <img class ="pokedexImage" src="<%= pokemon[i].image %>" alt="<%= pokemon[i].name %>" style="width:220px;height:220px;">
+                        </div>
+                        <div class="pokedexDetail"><%- pokemon[i].name %></div>
+                        <div class="pokedexDetail"><%- pokemon[i].type %></div>
+                        <div class="pokedexDetail"><%- pokemon[i].height %>ft.</div>
+                        <div class="pokedexDetail"><%- pokemon[i].weight %>lbs.</div>
+                    </div>
+                <% } %>
+
+
+        </div>
+    </div>
+    <div id="paginationBtns"></div>
+</div>
+
+<footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="javascripts/script.js"></script>
+</footer>
+</body>
+</html>

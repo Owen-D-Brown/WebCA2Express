@@ -18,7 +18,7 @@ async function addPokemonToCache(id) {
     }
 
     const pokemonData = await response.json();
-    console.log(pokemonData);
+    //console.log(pokemonData);
     const speciesResponse = await fetch(pokemonData.species.url);
     if(!speciesResponse.ok) {
         throw new Error(`Pokemon API fetch request failed with ${id}: ${speciesResponse.status}`);
@@ -113,4 +113,41 @@ export async function getDetailedPokemonInfo(id) {
         })
     }
 }
+
+async function getHomepageInfo(id) {
+    let pokemon = await getPokemon(id);
+
+    return {
+        name: capitalizeFirstLetter(pokemon.name),
+        sprite: pokemon.sprites.front_default
+    }
+}
+
+export async function getHomepagePokemonInfo() {
+    const ids = [];
+    for (let i = 1; i <= 30; i++) {
+        ids.push(i);
+    }
+    let pokemon = await Promise.all(ids.map(id => getHomepageInfo(id)));
+    return pokemon;
+}
+
+let cacheInitialized = false;
+
+export async function initPokemonCacheIfNeeded() {
+    if (cacheInitialized) return;
+
+    const preloadIDs = [];
+    for (let i = 1; i <= 30; i++) {
+        preloadIDs.push(i);
+    }
+
+    await getMultiplePokemonInfo(preloadIDs); // This does all the work
+    cacheInitialized = true;
+
+    console.log("Pokémon cache preloaded with first 30 entries.");
+}
+
+
+
 

@@ -20,6 +20,25 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+router.get('/update/pokemon/:id', async function(req, res, next) {
+  console.log("trying to fetch pokemon updates")
+  try {
+    const { getDetailedPokemonInfo } = await import('../services/getPokemon.mjs');
+    const id = parseInt(req.params.id);
+
+    if (isNaN(id) || id < 1) {
+      return res.status(400).json({ error: 'Invalid ID' });
+    }
+
+    const result = await getDetailedPokemonInfo(id);
+    res.json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
 router.get('/:id', async function(req, res, next) {
   try {
     const { getDetailedPokemonInfo } = await import('../services/getPokemon.mjs'); // Await the import
@@ -39,6 +58,7 @@ router.get('/:id', async function(req, res, next) {
     next(error); // Pass the error to Express error handler
   }
 });
+
 
 
 

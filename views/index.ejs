@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="stylesheets/pokedexStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Title</title>
-
-
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/pokedexStyle.css">
 </head>
 <body>
 <nav id="navbar">
@@ -19,42 +17,42 @@
     </div>
     <div id="navBlackBox"></div>
 </nav>
-
-<div id="mainContent">
-    <div id="sideAndBody">
-        <div id="sideContent">
-
+    <div id="indexContent">
+        <div id="topContainer">
+            <button class="customButton">Create Account</button>
+            <span id="homePokeball"></span>
+            <button class="customButton">Login</button>
         </div>
-        <div id="pokedexBody">
+        <div id="midContainer">
+            <div id="diaCaroContainer">
+                <div id="carousel"></div>
+                <div id="diaBox"><p>Welcome to the world of Pokemon!</p></div>
+            </div>
+            <div id="profOak"></div>
+        </div>
+        <div id="bottomContainer">
+            <div id="bottomHeader">
+                <h2>Pokémon Preview</h2>
+                <button id="viewAllBtn">View All</button>
+            </div>
+            <div id="carouselWrapper">
+                <button id="carouselLeft" class="carouselArrow">&lt;</button>
 
+                <div id="pokemonCarousel">
 
-            <script>
-                let pokemon = <%- JSON.stringify(pokemon) %>
+                </div>
 
-
-            </script>
-                <% for(let i = 0; i < 20; i++) { %>
-
-                    <div class="pokedexEntry">
-                        <div class="pokedexImage">
-                            <img class ="pokedexImage" src="<%= pokemon[i].image %>" alt="<%= pokemon[i].name %>" style="width:220px;height:220px;">
-                        </div>
-                        <div class="pokedexDetail"><%- pokemon[i].name %></div>
-                        <div class="pokedexDetail"><%- pokemon[i].type %></div>
-                        <div class="pokedexDetail"><%- pokemon[i].height %>ft.</div>
-                        <div class="pokedexDetail"><%- pokemon[i].weight %>lbs.</div>
-                    </div>
-                <% } %>
-
-
+                <button id="carouselRight" class="carouselArrow">&gt;</button>
+            </div>
         </div>
     </div>
-    <div id="paginationBtns"></div>
-</div>
 
-<footer>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="javascripts/script.js"></script>
-</footer>
+
+<script>
+    const homepageMons = <%- JSON.stringify(homepageMons) %>;
+
+
+</script>
+<script src="../javascripts/indexJS.js"></script>
 </body>
 </html>

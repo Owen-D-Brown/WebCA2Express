@@ -25,33 +25,27 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'indexActual.html'));
+app.get('/', async (req, res) => {
+  try {
+    const { initPokemonCacheIfNeeded, getHomepagePokemonInfo } = await import('./services/getPokemon.mjs');
+    await initPokemonCacheIfNeeded();
+
+    const ids = [];
+    for (let i = 1; i <= 30; i++) ids.push(i);
+    const homepageMons = await getHomepagePokemonInfo(ids); // or use getHomepageInfo()
+
+    res.render('index', { homepageMons });  // render EJS with mons
+  } catch (err) {
+    console.error("Failed to load cache:", err);
+    res.status(500).send("Server error");
+  }
 });
+
 
 app.use('/pokedex', indexRouter);
 app.use('/users', usersRouter);
 app.use('/pokemon', pokemonRouter);
 
-
-/*app.get('/getPokemon', async (req, res) => {
-  try {
-    // Dynamically import the getPokemon module
-    const { sendPokemon } = await import('./services/getPokemon.mjs');
-
-    // Call the sendPokemon function to get the data
-    var final = await sendPokemon(1);
-    for(i = 2; i<40; i++) {
-      var rows = await sendPokemon(i);  // Assuming sendPokemon returns the table rows
-      final += rows;
-    }
-    // Send the table rows to the client
-    res.send(final);
-  } catch (error) {
-    console.error('Error loading getPokemon module or fetching data:', error);
-    res.status(500).send('Failed to fetch Pokémon data');
-  }
-});*/
 
 
 
