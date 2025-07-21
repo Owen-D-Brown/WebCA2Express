@@ -1,9 +1,11 @@
+/*Custom pokemon font im loading in from a file.*/
 @font-face {
     font-family: "PokemonFont";
     src: url("../resources/pokemonFont.ttf");
     font-weight: normal;
     font-style: normal;
 }
+
 body {
     background: lightgrey;
 }
@@ -14,8 +16,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-
 
 #topContainer {
     width: 80%;
@@ -38,8 +38,8 @@ body {
     width: 10%;
     height: 10%;
 }
-#homePokeball {
 
+#homePokeball {
     width: 200px;
     height: 200px;
     background: black;
@@ -69,6 +69,8 @@ body {
     height: 100%;
     align-items: flex-end;
     justify-content: space-between;
+    padding-top: 2px;
+
 }
 
 #carousel {
@@ -77,6 +79,23 @@ body {
     background: black;
     align-self: center;
     margin-top: 14px;
+}
+
+#videoWrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2)
+    margin: 10px;
+}
+
+#introVideo {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 12px;
+
 }
 
 #carouselWrapper {
@@ -88,15 +107,12 @@ body {
     margin: 0 auto;
     position: relative;
 }
+
 #pokemonCarousel {
     display: flex;
     justify-content: center;
     overflow: hidden;
-
-
-
 }
-
 
 .carouselArrow {
     font-size: 2rem;
@@ -109,6 +125,7 @@ body {
     cursor: pointer;
     user-select: none;
 }
+
 #diaBox {
     width: 100%;
     height: 20%;
@@ -119,7 +136,9 @@ body {
     font-family: PokemonFont;
     padding-left: 10px;
     margin-bottom: 4px;
+    margin-top: 4px;
 }
+
 #profOak {
     width: 20%;
     height: 90%;
@@ -129,10 +148,13 @@ body {
     background-repeat: no-repeat;
     margin-top: 30px;
 }
+
+/*I had great fun with gradients, transitions, glows from animation keyframes, and shadows this project. I feel like its really uped my ability to produce at least decent looking visuals.*/
 #bottomContainer {
     width: 80%;
     margin: 2% auto;
-    background: lightblue;
+    background: linear-gradient(135deg, rgba(4, 68, 113, 0.95) 0%, rgba(0, 60, 80, 0.95) 30%, rgba(10, 90, 120, 0.9) 60%), radial-gradient(circle at top left, rgba(0, 255, 255, 0.1), transparent 50%);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.1), 0 0 24px rgba(255, 0, 255, 0.05);
     border: 3px solid black;
     border-radius: 25px;
     padding: 20px;
@@ -161,7 +183,6 @@ body {
 #pokemonCarousel {
     display: flex;
     justify-content: flex-start;
-
     overflow-x: hidden;
     transition: transform 0.4s ease-in-out;
     flex-wrap: nowrap;
@@ -173,7 +194,6 @@ body {
     display: flex;
     gap: 25px;
     justify-content: flex-start;
-
     transition: transform 0.4s ease-in-out;
     flex-wrap: nowrap;
     padding-bottom: 10px;
@@ -181,14 +201,28 @@ body {
 }
 
 .pokemonCard {
-    flex: 0 0 auto;
-    width: 150px;
-    height: 230px;
-    border: 2px solid black;
-    border-radius: 10px;
-    background: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 0.5rem;
     text-align: center;
-    padding: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #eaffff;
+    background: rgba(0, 255, 255, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.35);
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.3), 0 0 12px rgba(0, 200, 255, 0.2);
+    backdrop-filter: blur(2px);
+    transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 500;
+    font-family: PokemonFont;
+    animation: glowPulse 1s ease-in-out infinite alternate;
+    width: 190px;
+    height: 170px;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px rgba(0,255,255,0.3); }
+    100% { box-shadow: 0 0 18px rgba(0,255,255,0.6); }
 }
 
 .pokemonCard img {

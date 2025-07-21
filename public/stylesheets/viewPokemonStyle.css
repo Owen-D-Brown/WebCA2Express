@@ -1,3 +1,6 @@
+/*DEV NOTE: A fair brunt of the focus for the deffered project was on this page. I spent a vast majority of the time here (The page not strictly the css) after pokedex was done. I'm very happy with how it turned out. It's possibly the best looking
+Web page I've ever built, and it's fairly responsive too when being resized, granted I've flexbox to thank for that.*/
+
 @font-face {
     font-family: "PokemonFont";
     src: url("../resources/pokemonFont.ttf");
@@ -10,29 +13,14 @@ body {
 }
 
 .pokemon-container {
-
     max-width: 1200px;
     margin: 80px auto;
     padding: 30px;
-    background: linear-gradient(
-            135deg,
-            rgba(4, 68, 113, 0.95),
-            rgba(0, 60, 80, 0.95),
-            rgba(10, 90, 120, 0.9)
-    ), radial-gradient(circle at top left, rgba(0, 255, 255, 0.1), transparent 50%);
-    box-shadow:
-            0 0 8px rgba(0, 255, 255, 0.1),
-            0 0 24px rgba(255, 0, 255, 0.05);
-
-
+    background: linear-gradient(135deg, rgba(4, 68, 113, 0.95), rgba(0, 60, 80, 0.95), rgba(10, 90, 120, 0.9)), radial-gradient(circle at top left, rgba(0, 255, 255, 0.1), transparent 50%);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.1), 0 0 24px rgba(255, 0, 255, 0.05);
     border-radius: 16px;
-
     border: 4px solid white;
-
 }
-
-
-
 
 .top-section {
     display: flex;
@@ -40,7 +28,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* LEFT SIDE */
 .image-column {
     display: flex;
     flex-direction: column;
@@ -57,8 +44,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    background: radial-gradient(circle, rgba(72, 248, 133, 0.5), rgba(60, 237, 199, 0.9)),
-    linear-gradient( #28ffab, #0099cc, #146de1, rgba(13, 226, 246, 0.24));
+    background: radial-gradient(circle, rgba(72, 248, 133, 0.5), rgba(60, 237, 199, 0.9)), linear-gradient( #28ffab, #0099cc, #146de1, rgba(13, 226, 246, 0.24));
     background-size: 300% 300%;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.9), 0 0 20px rgba(255, 0, 255, 0.9);
     animation: gradiantAnimation 10s ease infinite, glowPulseImg 3s ease-in-out infinite alternate;;
@@ -77,7 +63,6 @@ body {
     display: flex;
     gap: 10px;
     justify-content: space-evenly;
-    /*border: 2px solid black;*/
     width: 100%;
 }
 
@@ -94,8 +79,6 @@ body {
     align-items: center;
     justify-content: center;
 }
-
-
 
 .btn.playing {
     background-color: #ccc;
@@ -156,9 +139,6 @@ body {
     transform: scale(0.95);
 }
 
-
-
-/* RIGHT SIDE */
 .info-column {
     flex: 1;
 }
@@ -167,11 +147,8 @@ body {
     padding: 20px;
     border-radius: 16px;
     border: 2px solid #00ffd5;
-    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)),
-                linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
-
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3),
-                0 0 24px rgba(255, 0, 255, 0.2);
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)), linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3), 0 0 24px rgba(255, 0, 255, 0.2);
     color: #e0f8ff;
     backdrop-filter: blur(6px);
     font-family: PokemonFont;
@@ -206,7 +183,7 @@ body {
 }
 
 .pokemon-name {
-    font-size: 2rem;               /* Larger title */
+    font-size: 2rem;
     margin-bottom: 20px;
     color: #ffffff;
     font-weight: 600;
@@ -224,13 +201,13 @@ body {
     width: 110px;
     color: #aefeff;
     font-weight: 600;
-    font-size: 1.05rem;            /* Increased for better clarity */
+    font-size: 1.05rem;
 }
 
 .value {
     color: #f0faff;
     font-size: .75rem;
-    margin-left: 20%/* Match label for balance */
+    margin-left: 20%;
 }
 .abilities-row {
     display: flex;
@@ -264,7 +241,6 @@ body {
     white-space: nowrap;
 }
 
-/* General Section Style */
 .section {
     margin-top: 40px;
 }
@@ -291,11 +267,8 @@ body {
     overflow-y: auto;
     padding: 16px;
     border: 2px solid #00ffd5;
-    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)),
-    linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
-
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3),
-    0 0 24px rgba(255, 0, 255, 0.2);
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)), linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.3), 0 0 24px rgba(255, 0, 255, 0.2);
     border-radius: 10px;
     font-size: 0.95rem;
     line-height: 1.6;
@@ -304,7 +277,6 @@ body {
     overflow-x: hidden;
 }
 
-
 .description-scroll p {
     font-family: PokemonFont;
     font-size: 0.75rem;
@@ -312,11 +284,7 @@ body {
     padding-left: 16px;
     position: relative;
     width: 100%;
-
-
 }
-
-
 
 .description-scroll p::before {
     content: '';
@@ -329,6 +297,7 @@ body {
     top: 9px;
 }
 
+/*Code for overhauling the scroll bar visuals. Generative AI was used to explore this posability.*/
 .description-scroll::-webkit-scrollbar,
 .moves-scroll::-webkit-scrollbar {
     width: 8px;
@@ -351,10 +320,8 @@ body {
     background-color: rgba(0, 200, 255, 0.6);
 }
 
-
 .content-box {
-    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)),
-    linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)), linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
     box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
     border-radius: 12px;
     padding: 20px;
@@ -368,17 +335,14 @@ body {
     background: #f9f9f9;
     border-radius: 10px;
     border: 1px solid #ddd;
-    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)),
-    linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
+    background: radial-gradient(circle at 30% 30%, rgba(0, 255, 200, 0.25), rgba(0, 50, 70, 0.6)), linear-gradient(135deg, rgba(0, 255, 255, 0.12), rgba(0, 100, 255, 0.2));
     box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
 }
 
 .moves-scroll ul {
     list-style-type: disc;
     padding-left: 20px;
-
     border: 1px solid rgba(0, 255, 255, 0.4);
-
 }
 
 .moves-scroll li {
@@ -405,16 +369,12 @@ body {
     color: #eaffff;
     background: rgba(0, 255, 255, 0.3);
     border: 1px solid rgba(0, 255, 255, 0.35);
-    box-shadow:
-            0 0 6px rgba(0, 255, 255, 0.3),
-            0 0 12px rgba(0, 200, 255, 0.2);
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.3), 0 0 12px rgba(0, 200, 255, 0.2);
     backdrop-filter: blur(2px);
     transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
     font-weight: 500;
     font-family: PokemonFont;
 }
-
-
 
 .move-box:hover {
     transform: scale(1.08);
